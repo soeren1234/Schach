@@ -1,0 +1,39 @@
+html {
+    text-align: center;
+    background: url("background.jpg");
+    background-size: 100%;
+}
+
+body{
+    display: inline-grid;
+
+}
+
+a{
+    font-size: x-large;
+    text-align: center;
+    margin: 5px;
+    text-decoration: none;
+    padding: 20px;
+    color: antiquewhite;
+    background: url("1.png");
+    background-size: 100% 100%;
+}
+
+a:hover {
+    display:block;
+    background: url("2.png");
+    background-size: 100% 100%;
+    color:white;
+    border: none;
+    outline:none;
+}
+
+#leer {
+    height: 200px;
+}
+
+#button {
+
+}
+
