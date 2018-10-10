@@ -9,7 +9,11 @@ body{
 
 }
 
+.spielen{
+
+}
 a{
+    font-family: "Arial Black";
     font-size: x-large;
     text-align: center;
     margin: 5px;
@@ -32,8 +36,3 @@ a:hover {
 #leer {
     height: 200px;
 }
-
-#button {
-
-}
-
