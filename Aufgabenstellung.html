@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head><title>Aufgabe Web-Programmierung WS 18/19 Prof. Jensen</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <style>
+      @keyframes welle2 {
+      from {
+      background-position: 0px 0px;
+      }
+      to {
+      background-position: 0px -100px;
+      }
+      }
+      body {
+      font-family: Arial;
+      font-size: 13pt;
+      line-height: 1.5em;
+      color: #111111;
+      background-image: repeating-linear-gradient(to top, #1188ff 0%, #eeffff 50px, #1188ff 100px);
+      background-position: 0px 0px;
+      background-size: auto 2000px;
+      animation: welle2 2s normal infinite linear;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Kleine Spielerei: Nachahmung eines Copper-Effekts -->
+    <h1>Aufgabenstellung</h1>
+    <p>Bauen Sie ein einfaches 2-D-Computerspiel nach. Die Auswahl richtet sich nach Ihrer Gruppengröße und steht zuunterst. Mehrbelegungen sind möglich.</p>
+<p>
+    Nutzen Sie zur eigenständigen Konzeption und Programmierung HTML5 Canvas, ECMAScript 6 (Javascript) und CSS Level 3. <span style="font-weight: bold;">Ihr Spiel muss in der aktuellen Version des Firefox-Browsers (Desktop) laufen</span>. Das Canvas ist 640*480 Pixel groß. Ein Beispiel der Canvas-Programmierung <a href="https://www2.ostfalia.de/cms/de/pws/jensenn/res/sonder/canvas_demo.html">sieht so aus</a>, oder kombiniert mit anderen Effekten <a href="https://www2.ostfalia.de/cms/de/pws/jensenn/res/sonder/alien_mona.html">auch so</a>.</p>
+    <ul>
+      <li>Recherchieren Sie zu den Vorbildern im Web. Bei Unklarheiten kontaktieren Sie den Dozenten.
+      <li>Mindestens die ersten beiden Level oder zumindest Teilabschnitte sollten gem. des Originals funktionieren (Einzelspieler-Modus).
+      <li>Verschönerungen/Modernisierungen sind erlaubt.
+      <li>Die Nutzung von Libraries ist nicht möglich, z. B. JQuery.
+    </ul>
+<p>  
+    Eine sinnvolle Aufgabenteilung ist:</p>
+    <ol>
+      <li>I/O-Programmierung (ECMAScript; Verhalten der Spielfigur, Tastatur, Maus, Netzwerk, Fehlerabfragen, Protokollierung)
+      <li>Logik (ECMAScript; Regelwerk des Spiels, NPC-Verhalten, Level im JSON-Format, nachgeladen per AJAX)
+      <li>Grafik-Programmierung (Canvas, CSS; Anzeigen)
+      <li>Sound-Programmierung (Audio API; Geräusche, Sprache, Musik)
+      <li>Umsetzung Design (validiertes HTML5), Assets (mit Quellennachweis) und Level-Daten (im JSON-Format)
+      <li>Programmierung der Hilfsroutinen, API und Tools; insb. Level-Editor
+    </ol>
+<p>    Querschnitt: Anforderungsanalyse, Integration, Test, Projektmanagement, Dokumentation</p>
+
+    <h1>Umfang</h1>
+    </p>Das Spiel umfasst nebst mind. je einer CSS- und ECMAScript-Datei:</p>
+    <ol>
+      <li>Einstiegsseite/Menü (HTML)
+      <li>Spielfeld (Canvas) auf separater HTML-Seite, in dem das eigentliche Spiel gespielt werden kann
+      <li>Highscore-Liste (HTML; Bestenliste mit Webstorage: <a href="https://de.wikipedia.org/wiki/Web_Storage#localStorage">Localstorage</a> zu speichern)
+      <li>Hilfeseite (HTML; Spielzweck, Gewinn, Niederlage, Tastatur-/Maus-Kommandos)
+      <li>Credits+Impressum (HTML; Namen aller Gruppenmitglieder, Ostfalia-Email-Adresse und Matr.-Nr.)
+    </ol>
+<p>    Ein Intro/Extro oder Demo-Modus ist nicht erforderlich, ebensowenig ein Mehrspielermodus und verschiedene Schwierigkeitsgrade. Es muss einen Pausenmodus geben und der Ton muss aus- und einschaltbar sein.</p>
+
+    <h1>Auswahl</h1>
+<p>    Die mögliche Auswahl des Spiels resultiert aus Ihrer Gruppengröße:</p>
+    <h2>1</h2>
+    <ol>
+      <li><a href="https://youtu.be/ncB0ov5hT48">Pong</a>
+      <li><a href="https://youtu.be/McAhSoAEbhM">Lunar Lander</a>
+    </ol>
+
+    <h2>2</h2>
+    <ol>
+      <li><a href="https://youtu.be/WNrz9_Fe-Us">Frogger</a>
+      <li><a href="https://youtu.be/c95UcYHa-PY">Tetris</a>
+    </ol>
+    
+    <h2>3</h2>
+    <ol>
+      <li><a href="https://youtu.be/jAYcpvd8jGE">Air Hockey</a>
+      <li>Schach
+      <li>Flipper (simpel)
+    </ol>
+
+    <h2>4</h2>
+    <ol>
+      <li>Billard
+      <li><a href="https://youtu.be/o6HYbQCRwgk">Battle Chess</a>
+      <li>Flipper (<a href="https://youtu.be/hqS2SsZvoA4">mehr Effekte</a>)
+    </ol>
+
+    <h2>5</h2>
+    <ol>
+      <li><a href="https://youtu.be/l0yQfyJlqdA">Digger</a>
+      <li><a href="https://youtu.be/karPYs22ACc">Q*Bert</a>
+      <li><a href="https://youtu.be/hW7Sg5pXAok">Breakout</a>
+      <li>Pac Man
+      <li><a href="https://youtu.be/72k1ZYp83tc">Lode Runner</a>
+      <li><a href="https://youtu.be/9qXHicrtLJU">R-Type</a>
+      <li><a href="https://youtu.be/gC4C5DJPOxA">Goldrunner</a>
+    </ol>
+    
+    <h2>6</h2>
+    <ol>
+      <li><a href="https://youtu.be/8teXm6723-g">Great Giana Sisters</a>
+      <li><a href="https://youtu.be/F34VNjqxIgk">Bubble Bobble</a>
+      <li><a href="https://youtu.be/uK82X9VlE38">Wizball</a>
+      <li><a href="https://youtu.be/wdfIfC9BHwQ">Archon</a>
+      <li><a href="https://youtu.be/dlKYmVSsRzI">Speedball</a>
+      <li><a href="https://youtu.be/k-JXM43NkIg">Rainbow Islands</a>
+    </ol>
+    
+    <h1>Bewertungsschema</h1>
+<p>    Laden Sie Ihr fertiges Spiel inkl. Quellcode und kurzer Anleitung komplett als Zip hoch. Abgabezeit und -Ort werden in der ersten Vorlesungsstunde mitgeteilt und sind unbedingt verbindlich.</p>
+<p>
+    Eine nicht pünktlich hochgeladene, unvollständige oder nicht lesbare Datei führt zu "nicht bestanden". Bei technischen Ausfällen ist eine Verlängerung der Abgabefrist ausgeschlossen. Nichtbeachtung der o.g. Aufgabenstellung, auch in Teilen, führt zu Punkteabzug und kann z. B. beim Einsatz von 3rd-party Libraries zu "nicht bestanden" führen.
+</p><p>
+    Die Bewertung variiert je nach Qualität, Angemessenheit und Vollständigkeit der systematischen Umsetzung zwischen 0% (n.b.) und 100% (1,0). Für eine 4,0 sind 51% zu erreichen. Die jeweils mit 10% bzw. 20% gewichteten Bewertungs-Kriterien lauten:</p>
+    <ol>
+      <li>    Sinnvolle Ordner- und Dateistruktur gem. Arbeitspaketen, angemessene Dokumentation des Quelltexts, Anleitung vorhanden (readme.md)
+      <li>    Keine alerts oder toter Code im Quelltext, einheitliche Code-Richtlinien umgesetzt, Sicherheitsaspekte beachtet
+      <li>    Validiertes HTML5 (nutzen Sie <a href="http://validator.w3.org">validator.w3.org</a>) und CSS Level 3
+      <li>    Objektorientiertes ECMAScript >=6 (nur im Strict-Modus!), Protokollierung mittels der Funktion console.log(), Ausnahmebehandlung, Timeouts, AJAX und Fehlerabfragen
+      <li>    Mittels aktuellem Firefox-Browser auf einem Web-Server nutzbar, d.h. Ihr Projekt sollte auf dem Apache Web Server laufen (http://localhost...)
+      <li>    Level-Daten und Konfigurationsdateien sind im JSON-Format
+      <li>    (doppelte Gewichtung) Umsetzung des Spielverhaltens gem. Vorlage
+      <li>    (doppelte Gewichtung) Umsetzung der audio-visuellen Charakteristika gem. Vorlage oder wahlw. modernisiert
+    </ol>
+    <footer><div>
+	<p>Stand: 6. August 2018</p>
+	<p>Fragen? In der Vorlesung, oder per Mail an <a href="mailto:n.jensen@ostfalia.de?subject=Meine%20Frage%20zu%20Webprogrammierung&amp;body=Guten%20Tag,%20ich%20bin%20Praesenzler(%20)%20Onliner(%20)%20und%20meine%20Frage%20lautet:%20">n.jensen@ostfalia.de</a></p>
+	<p>Referenzen:</p>
+	<ul>
+	  <li><a href="http://w3schools.com">w3schools.com</a>
+	  <li><a href="http://selfhtml.org">selfthtml.org</a>
+	  <li><a href="http://www.cheat-sheets.org/saved-copy/HTML5_Canvas_Cheat_Sheet.pdf">Canvas-Referenz</a>
+	  <li><a href="https://keithclark.co.uk/articles/pure-css-parallax-websites/demo3/">Beispiel eines weiteren Effekts in CSS: Parallax-Scrolling (performantere Lösung)</a>
+	</ul>
+      </div>
+    </footer>
+  </body>
+</html>
