@@ -9,7 +9,21 @@ body{
 
 }
 
+.spielen{
+
+}
+table {
+    border-collapse: collapse;
+    border-color: blue;
+}
+td, th {
+
+    border:1px solid black;
+
+
+}
 a{
+    font-family: "Arial Black";
     font-size: x-large;
     text-align: center;
     margin: 5px;
@@ -32,8 +46,3 @@ a:hover {
 #leer {
     height: 200px;
 }
-
-#button {
-
-}
-
