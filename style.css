@@ -53,8 +53,15 @@ a:hover {
 
 /*Canvas Start*/
 #canvas {
+    background: white;
     border:1px solid #000000;
-    cursor: crosshair;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 /*Canvas Ende*/
 
@@ -73,12 +80,9 @@ html {
     position: relative;
     color: #fff;
 }
-canvas {
-    display: block;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+
+.white {
+    width: 63px;
+    height: 63px;
+    background: black;
 }
