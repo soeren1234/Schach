@@ -9,34 +9,7 @@ Script Start<p></p>
 <script type="text/javascript">
     document.write("<h1>Schach</h1>");
 
-    function figur(name, farbe) {
-        this.name = name;
-        this.farbe = farbe;
-    }
 
-    /*zweidimensionales Array erstellen*/
-    var spielfeld = new Array(8);
-
-    for (var i = 0; i < spielfeld.length; i++) {
-        spielfeld[i] = new Array(8);
-    }
-
-    /*Feld Füllen*/
-    for (var x = 0; x < spielfeld.length; x++) {
-        for (var y = 0; y < spielfeld[x].length; y++) {
-            spielfeld[x][y] = new figur('B','W');
-        }
-    }
-
-    /*Ausgae des Feldes*/
-    document.write(" A B   C   D   E   F   G   H<br>");
-    for (var x = 0; x < spielfeld.length; x++) {
-        document.write(x);
-        for (var y = 0; y < spielfeld[x].length; y++) {
-            document.write("    " + spielfeld[x][y].name + spielfeld[x][x].farbe);
-        }
-        document.write("<br>");
-    }
 
 </script>
 <p></p>

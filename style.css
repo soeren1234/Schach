@@ -51,9 +51,15 @@ a:hover {
     height: 200px;
 }
 
+td {
+    width: 40px;
+    height: 40px;
+
+}
+
 /*Canvas Start*/
-#canvas {
-    background: white;
+#canvas{
+    /*background: white;*/
     border:1px solid #000000;
     display: block;
     position: absolute;
@@ -62,9 +68,13 @@ a:hover {
     bottom: 0;
     right: 0;
     left: 0;
+    display: none;
 }
 /*Canvas Ende*/
 
+#BS {
+    width: 80px;
+}
 
 * {
     margin: 0;

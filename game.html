@@ -1,23 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<
+<!- lang="en">
 <head>
     <Link href ="style.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Schach</title>
 </head>
-<body>
 
 <button id="start">Spiel Starten</button>
 
-<!-- Canvas mit göße 680*480 Pixel-->
-<canvas id="canvas" height="500px" width="500px"></canvas>
-<!--Canvas Ende-->
+<div>
+    <!-- Canvas mit göße 680*480 Pixel-->
+    <canvas id="canvas" height="640px" width="640px">
+
+    </canvas>
+
+    <table  style="display: none">
+        <tbody>
+        <tr>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+        </tr>
+        <tr>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+        </tr>
+        <tr>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+        </tr>
+        <tr>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+        </tr>
+        <tr>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+        </tr>
+        <tr>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+            <td bgcolor="black"></td>
+            <td bgcolor="white"></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--Canvas Ende-->
+</div>
+<table>
+    <tbody id="tabelleb">
+        <tr>
+            <td>
+                <input type="checkbox" onClick="function appendTR() {
+                    var fel = new Tabelle(8,8);
+                }
+                appendTR();">
+            </td>
+        </tr>
+
+    </tbody>
+</table>
 
 
-<div id="A1" class="white">♔</div>
-<div id="board1" style="width: 400px"></div>
+<img src="image/BS.png" id="BS">
+
+
+<!--
+
+-->
+
+
 
 <script src="canvas.js"></script>
+<script src="tabelle.js"></script>
 
 </body>
 </html>
