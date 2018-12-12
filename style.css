@@ -57,9 +57,13 @@ td {
 
 }
 
+#canva {
+    background: deepskyblue;
+}
+
 /*Canvas Start*/
 #canvas{
-    /*background: white;*/
+
     border:1px solid #000000;
     display: block;
     position: absolute;
