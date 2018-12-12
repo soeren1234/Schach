@@ -1,15 +1,69 @@
 <html>
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Air Hokey</title>
+</head>
     <body>
-        <canvas id="canva" height="500px" width="500px">
+        <canvas id="canva" height="500px" width="1000px" >
             <script>
-                var canvas = document.getElementById('canva');
-                if (canvas.getContext) {
-                var context = canvas.getContext('2d');
-                    context.fillStyle= "red";
-                    context.arc(100,100,20,0,2*Math.PI);
+                var canvas = document.querySelector("#canva");
+                var context = canvas.getContext("2d");
+
+                var canvasPos = getPosition(canvas);
+                var mouseX = 0;
+                var mouseY = 0;
+
+                canvas.addEventListener("mousemove", setMousePosition, false);
+
+                function setMousePosition(e) {
+                    mouseX = e.clientX - canvasPos.x;
+                    mouseY = e.clientY - canvasPos.y;
+
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    context.beginPath();
+                    context.arc(mouseX, mouseY, 20, 0, 2 * Math.PI, true);
+                    context.fillStyle = "white";
+                    context.fill();
+                }
+
+                function update() {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+
+                    context.beginPath();
+                    context.arc(mouseX, mouseY, 20, 0, 2 * Math.PI, true);
+                    context.fillStyle = "white";
                     context.fill();
 
+                    requestAnimationFrame(update);
                 }
+                update();
+
+                // deal with the page getting resized or scrolled
+                //window.addEventListener("scroll", updatePosition, false);
+                //window.addEventListener("resize", updatePosition, false);
+
+                function updatePosition() {
+                    canvasPos = getPosition(canvas);
+                }
+
+                // Helper function to get an element's exact position
+                function getPosition(el) {
+                    var xPosition = 0;
+                    var yPosition = 0;
+
+                    while (el) {
+                        xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+                        yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+                        el = el.offsetParent;
+                    }
+                    return {
+                        x: xPosition,
+                        y: yPosition
+                    };
+                }
+
             </script>
         </canvas>
     </body>
