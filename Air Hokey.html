@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <canvas id="canva" height="500px" width="500px">
+            <script>
+                var canvas = document.getElementById('canva');
+                if (canvas.getContext) {
+                var context = canvas.getContext('2d');
+                    context.fillStyle= "red";
+                    context.arc(100,100,20,0,2*Math.PI);
+                    context.fill();
+
+                }
+            </script>
+        </canvas>
+    </body>
+</html>
