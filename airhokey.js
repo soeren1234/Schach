@@ -5,7 +5,7 @@ var canvasPos = getPosition(canvas);
 var width = canvas.width;
 var height = canvas.height;
 
-var feldrand = 20;
+
 
 var mouseX = width*(1/4);
 var mouseY = height*(1/2);
@@ -42,6 +42,7 @@ function setMousePosition(e) {
     } else {
 
     }
+
     context.clearRect(0, 0, width, height);
     draw();
 }
@@ -51,7 +52,6 @@ function update() {
     draw();
     requestAnimationFrame(update);
 }
-
 
 // Helper function to get an element's exact position
 function getPosition(el) {
@@ -85,18 +85,20 @@ function draw() {
 
     //Spieler 2 zeichnen
     ki.draw();
-    //ausgeben von Maus Koordinaten
-    document.getElementById('mouse').innerHTML = "X: "+ mouseX + " Y:" + mouseY;
+
+    //Punkte
+    context.beginPath();
+    context.font = "30px Arial";
+    context.textAlign = 'center';
+    context.fillText(player.getPoints() + "   " + ki.getPoints(), width/2, 30);
+    context.closePath();
 }
-
-
-
-
 
 //Schläger zeichnen
 function Pusher (x,y) {
     this.x = x;
     this.y = y;
+
     Pusher.prototype.setx = function (x) {
         this.x = x;
     };
@@ -124,6 +126,7 @@ function Pusher (x,y) {
 
 function Player() {
     this.pusher = new Pusher(mouseX,mouseY);
+    this.points = 0;
 
     Player.prototype.setx = function (x) {
         this.pusher.setx(x);
@@ -133,6 +136,10 @@ function Player() {
         this.pusher.sety(y);
     };
 
+    Player.prototype.getPoints = function() {
+        return this.points;
+    };
+
     Player.prototype.draw = function () {
         this.pusher.draw();
     };
@@ -140,6 +147,8 @@ function Player() {
 
 function KI() {
     this.pusher = new Pusher(width*(3/4), height/2);
+    this.points = 0;
+
     KI.prototype.setx = function (x) {
         this.pusher.setx(x);
     };
@@ -148,7 +157,17 @@ function KI() {
         this.pusher.sety(y);
     };
 
+    KI.prototype.getPoints = function() {
+        return this.points;
+    };
+
+    KI.prototype.update = function() {
+
+
+    };
+
     KI.prototype.draw = function(){
+
         this.pusher.draw();
     };
 }
@@ -166,15 +185,15 @@ function drawfeld() {
     context.shadowColor = color3;
     context.shadowBlur = shadowsize;
     context.fillStyle = color3;
-    context.lineWidth = 5;
+    context.lineWidth = 8;
     context.strokeStyle = color3;
-    context.strokeRect(width/2-1, 0, 0, height*(1/4));
-    context.strokeRect(width/2-1, height*(3/4), 0, height*(1/4));
+    context.fillRect(width/2-4, 0, 8, height*(1/4));
+    context.fillRect(width/2-4, height*(3/4), 8, height*(1/4));
     context.arc(width/2, height/2, height*(1/4), 0, 2 * Math.PI, true);
     context.stroke();
     context.closePath();
     context.beginPath();
-    context.arc(500, 250, 10, 0, 2 * Math.PI, true);
+    context.arc(width/2, height/2, 10, 0, 2 * Math.PI, true);
     context.fill();
     //Tore
     context.beginPath();
@@ -182,8 +201,14 @@ function drawfeld() {
     context.shadowBlur = shadowsize;
     context.strokeStyle = color2;
     context.arc(0, height/2, height*(1/8), 0, 2 * Math.PI, true);
-    context.moveTo(width, height/2);
+    context.stroke();
+    context.closePath();
+    context.beginPath();
     context.arc(width, height/2, height*(1/8), 0, 2 * Math.PI, true);
     context.stroke();
+    context.closePath();
+
+    context.beginPath();
+
     context.closePath();
 }

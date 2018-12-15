@@ -2,8 +2,8 @@
 function Puck (x,y) {
     this.x = x;
     this.y = y;
-    this.x_speed = 3;
-    this.y_speed = 3;
+    this.x_speed = 1;
+    this.y_speed = 1;
 
     Puck.prototype.setx = function (x) {
         this.x = x;
@@ -14,11 +14,20 @@ function Puck (x,y) {
     };
 
     Puck.prototype.update = function() {
-        if(this.x > width - feldrand || this.x< feldrand) {
+        var seitea = this.x - mouseX;
+        var seiteb = this.y - mouseY;
+
+        var seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
+
+        if(0 >= seitec - 20-15) {
+            this.x_speed = -this.x_speed;
+            this.y_speed= -this.y_speed;        }
+
+        if(this.x > width - a || this.x< a) {
             this.x_speed = -this.x_speed;
         }
 
-        if(this.y > height - feldrand || this.y < feldrand){
+        if(this.y > height - a || this.y < a){
             this.y_speed= -this.y_speed;
         }
         this.x += this.x_speed;
