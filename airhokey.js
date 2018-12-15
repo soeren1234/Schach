@@ -5,8 +5,6 @@ var canvasPos = getPosition(canvas);
 var width = canvas.width;
 var height = canvas.height;
 
-
-
 var mouseX = width*(1/4);
 var mouseY = height*(1/2);
 
@@ -206,9 +204,5 @@ function drawfeld() {
     context.beginPath();
     context.arc(width, height/2, height*(1/8), 0, 2 * Math.PI, true);
     context.stroke();
-    context.closePath();
-
-    context.beginPath();
-
     context.closePath();
 }
