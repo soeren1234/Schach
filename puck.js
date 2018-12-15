@@ -4,10 +4,11 @@ function Puck (x,y) {
     this.y = y;
     this.richtungx = 0;
     this.richtungy = 0;
-    this.speedx = 1;
-    this.speedy = 1;
+    this.speedx = 1/4;
+    this.speedy = 1/4;
     this.seitea;
     this.seiteb;
+    var seitec;
 
     Puck.prototype.setx = function (x) {
         this.x = x;
@@ -18,39 +19,51 @@ function Puck (x,y) {
     };
 
     Puck.prototype.update = function() {
-        seitea = this.x - mouseX;
-        seiteb = this.y - mouseY;
-
-        var seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
-
-        context.beginPath();
-        context.fillText(this.richtungx + " " + this.richtungy, 50, 30);
-        context.closePath();
-
+        //this.calc(mouseX,mouseY);
         if(0 >= seitec - 20-15) {
-            this.richtungx = seitea/this.speedx;
-            this.richtungy = seiteb/this.speedy;
+            this.richtungx = seitea*this.speedx;
+            this.richtungy = seiteb*this.speedy;
         } else{
 
         }
 
-        /*
-        if(0 >= seitec - 20-15) {
-            this.richtungx = -this.richtungx;
-            this.richtungy= -this.richtungy;        }
-        */
-
-        if(this.x > width - a || this.x< a) {
+        if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
         }
 
         if(this.y > height - a || this.y < a){
             this.richtungy= -this.richtungy;
+
         }
 
         this.x += this.richtungx;
         this.y += this.richtungy;
+    };
 
+    Puck.prototype.calc = function(x1,y1,x2,y2) {
+        seitea = this.x - x1;
+        seiteb = this.y - y1;
+        seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
+
+        if(0 >= seitec - 20-15) {
+            this.richtungx = seitea*this.speedx;
+            this.richtungy = seiteb*this.speedy;
+        } else{
+            seitea = this.x - x2;
+            seiteb = this.y - y2;
+            seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
+            if(0 >= seitec - 20-15) {
+                this.richtungx = seitea*this.speedx;
+                this.richtungy = seiteb*this.speedy;
+            } else {
+
+            }
+
+        }
+
+        context.beginPath();
+        context.fillText(this.richtungx + " " + this.richtungy, 50, 30);
+        context.closePath();
     };
 
     Puck.prototype.speed = function(x,y) {

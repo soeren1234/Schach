@@ -74,6 +74,7 @@ function draw() {
     //spielfeld
     drawfeld();
 
+    puck.calc(mouseX, mouseY, width*(3/4),height/2);
     puck.update();
     puck.render();
     //Spieler eins zeichnen;
@@ -82,6 +83,8 @@ function draw() {
     player.draw();
 
     //Spieler 2 zeichnen
+    ki.setx(width*(3/4));
+    ki.sety(height/2);
     ki.draw();
 
     //Punkte
@@ -103,6 +106,14 @@ function Pusher (x,y) {
 
     Pusher.prototype.sety = function (y) {
         this.y = y;
+    };
+
+    Pusher.prototype.getx = function () {
+        return this.x;
+    };
+
+    Pusher.prototype.gety = function () {
+        return this.y;
     };
 
     Pusher.prototype.draw = function () {
@@ -132,6 +143,14 @@ function Player() {
 
     Player.prototype.sety = function (y) {
         this.pusher.sety(y);
+    };
+
+    Player.prototype.getx = function () {
+        this.pusher.getx();
+    };
+
+    Player.prototype.gety = function () {
+        this.pusher.gety();
     };
 
     Player.prototype.getPoints = function() {
