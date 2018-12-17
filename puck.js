@@ -8,7 +8,15 @@ function Puck (x,y) {
     this.speedy = 1/4;
     this.seitea;
     this.seiteb;
-    var seitec;
+    this.seitec;
+
+    Puck.prototype.getx = function(){
+        return this.x;
+    };
+
+    Puck.prototype.gety = function(){
+        return this.y;
+    };
 
     Puck.prototype.setx = function (x) {
         this.x = x;
@@ -20,12 +28,6 @@ function Puck (x,y) {
 
     Puck.prototype.update = function() {
         //this.calc(mouseX,mouseY);
-        if(0 >= seitec - 20-15) {
-            this.richtungx = seitea*this.speedx;
-            this.richtungy = seiteb*this.speedy;
-        } else{
-
-        }
 
         if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
@@ -69,6 +71,26 @@ function Puck (x,y) {
     Puck.prototype.speed = function(x,y) {
         this.richtungx = x;
         this.richtungy = y;
+    };
+
+    Puck.prototype.tor = function() {
+        if(this.x < width/2){
+            if(this.y >= 185 && this.x <= 10+15 && this.y <= 185+height*(1/4)) {
+                ki.addpoint();
+                this.x = width/2;
+                this.y = height/2;
+                this.richtungx = 0;
+                this.richtungy = 0;
+            }
+        } else {
+            if(this.y >= 185 && this.x >= width-10-15 && this.y <= 185+height*(1/4)) {
+                player.addpoint();
+                this.x = width/2;
+                this.y = height/2;
+                this.richtungx = 0;
+                this.richtungy = 0;
+            }
+        }
     };
 
     Puck.prototype.render = function () {

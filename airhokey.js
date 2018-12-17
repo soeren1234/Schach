@@ -71,10 +71,15 @@ function getPosition(el) {
 
 //gesamtes Canvas füllen
 function draw() {
+    puck.tor();
+    if (puck.tor()){
+        player.points();
+    }
+
     //spielfeld
     drawfeld();
 
-    puck.calc(mouseX, mouseY, width*(3/4),height/2);
+    puck.calc(player.getx(), player.gety(), ki.getx(), ki.gety());
     puck.update();
     puck.render();
     //Spieler eins zeichnen;
@@ -82,9 +87,11 @@ function draw() {
     player.sety(mouseY);
     player.draw();
 
+    ki.move();
+
     //Spieler 2 zeichnen
     ki.setx(width*(3/4));
-    ki.sety(height/2);
+    //ki.sety(height/2);
     ki.draw();
 
     //Punkte
@@ -146,15 +153,19 @@ function Player() {
     };
 
     Player.prototype.getx = function () {
-        this.pusher.getx();
+        return this.pusher.getx();
     };
 
     Player.prototype.gety = function () {
-        this.pusher.gety();
+        return this.pusher.gety();
     };
 
     Player.prototype.getPoints = function() {
         return this.points;
+    };
+
+    Player.prototype.addpoint = function() {
+        this.points++;
     };
 
     Player.prototype.draw = function () {
@@ -165,6 +176,8 @@ function Player() {
 function KI() {
     this.pusher = new Pusher(width*(3/4), height/2);
     this.points = 0;
+    this.speedx = 0;
+    this.speedy = 1;
 
     KI.prototype.setx = function (x) {
         this.pusher.setx(x);
@@ -174,8 +187,33 @@ function KI() {
         this.pusher.sety(y);
     };
 
+    KI.prototype.getx = function(){
+        return this.pusher.getx();
+    };
+
+    KI.prototype.gety = function(){
+        return this.pusher.gety();
+    };
+
     KI.prototype.getPoints = function() {
         return this.points;
+    };
+
+    KI.prototype.addpoint = function(){
+        this.points++;
+    };
+
+    KI.prototype.move = function() {
+
+        if(puck.gety()<this.pusher.gety()){
+            this.pusher.sety(this.pusher.gety()-this.speedy);
+        } else {
+            this.pusher.sety(this.pusher.gety()+this.speedy);
+        }
+
+        if(width/2 +24< this.x) {
+            this.x = width/2 + 24;
+        }
     };
 
     KI.prototype.update = function() {
@@ -223,5 +261,12 @@ function drawfeld() {
     context.beginPath();
     context.arc(width, height/2, height*(1/8), 0, 2 * Math.PI, true);
     context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    context.fillStyle = color2;
+    context.fillRect(0, (height/2)-height*(1/8), 10, height*(2/8));
+    context.fillRect(width-10, (height/2)-height*(1/8), 10, height*(2/8));
+    context.fill();
     context.closePath();
 }
