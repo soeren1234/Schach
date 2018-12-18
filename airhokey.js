@@ -51,6 +51,13 @@ function update() {
     requestAnimationFrame(update);
 }
 
+window.addEventListener("scroll", updatePosition, false);
+window.addEventListener("resize", updatePosition, false);
+
+function updatePosition() {
+    canvasPos = getPosition(canvas);
+}
+
 // Helper function to get an element's exact position
 function getPosition(el) {
     var xPosition = 0;
