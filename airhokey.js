@@ -1,3 +1,4 @@
+
 var canvas = document.querySelector("#canva");
 var context = canvas.getContext("2d");
 
@@ -28,7 +29,6 @@ var player = new Player();
 var ki = new KI();
 
 update();
-
 
 function setMousePosition(e) {
     //mit berechnung das player1 in feld1 bleibt
