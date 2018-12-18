@@ -1,2 +1,2 @@
-# Schach
-Schach auf einer WEB Seite programmieren
+# Airhokey
+Airhokey auf einer WEB Seite programmieren
