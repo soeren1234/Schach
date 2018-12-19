@@ -1,44 +1,59 @@
 html {
-
     background-size: 100%;
     height: 100%;
 }
 
 body{
+    margin:0;
+    padding:0;
+    height:100%;
     font-family: Pacifico;
     background-color: #222222;
     background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
 }
 
+#container {
+    min-height:100%;
+    position:relative;
+}
+
+#header {
+}
+#body {
+    padding-bottom: 100px;
+}
+
+#footer {
+    position: absolute;
+    width: 98%;
+    bottom: 0;
+    color: white;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    height:100px;
+    padding:10px;
+}
+
 /*neon*/
 p {
     text-align: center;
-    font-size: 7em;
     margin: 20px 0 20px 0;
 }
 
 a {
+    font-size: 60px;
     text-decoration: none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
 }
 
-
-
-
-
-
-/*neon Ende*/
-
-#leer {
-    height: 200px;
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-td {
-    width: 40px;
-    height: 40px;
-
+.child {
+    display: inline-block;
+    font-size: 100px;
 }
 
 #canva {
@@ -60,24 +75,29 @@ td {
 }
 /*Canvas Ende*/
 
-footer {
-    display: block;
-    color: #1d90cf;
-    font-family: arial,sans-serif;
-    font-size: 13px;
+
+
+.hrblue {
+    width: 375px;
+    -moz-animation: blueBox 1.5s ease-in-out infinite alternate;
+}
+
+.hrred {
+    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
 }
 
 hr {
     height: 10px;
     margin: 0 auto;
-    background: #FF0009;
+    background: #ffffff;
     border: 0;
     border-radius: 7px 7px 7px 7px;
-    box-shadow:  2px 2px 2px #d6183e;
+    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
 }
 
 ul{
     list-style: none;
+    padding: 10px;
 }
 
 li{

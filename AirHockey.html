@@ -1,31 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="neon.css" rel="stylesheet" type="text/css">
+    <!--<link href="neon.css" rel="stylesheet" type="text/css">-->
     <meta charset="UTF-8">
-    <title>Air Hockey</title>
+    <title>Air Hokey</title>
 </head>
 <body>
-
 <div id="container">
     <div id="header">
         <div class="parent">
-        <p class="yellow child">
-            Air&nbsp;
-        </p>
-        <p class="green child">
-            Hockey
-        </p>
+            <p class="yellow child">
+                Air&nbsp;
+            </p>
+            <p class="green child">
+                Hockey
+            </p>
         </div>
         <hr class="hrblue">
     </div>
 
     <div id="body">
+
+        <p id="mouse"></p>
+        <canvas id="canva" height="500px" width="1000px" >
+            <script src="puck.js"></script>
+            <script src="airhokey.js"></script>
+        </canvas>
+
+
         <div style="min-height: 100px"></div>
         <p class="red">
-            <a href="AirHockey.html">Spielen
+            <a href="index.html">Hompage
             </a>
         </p>
         <p class="blue">
