@@ -29,7 +29,7 @@ canvas.addEventListener("mousemove", setMousePosition, false);
 var puck = new Puck(width/2,height/2);
 var player = new Player();
 var ki = new KI();
-var endpoints = 1;
+var endpoints = 5;
 /*
 var check;
 player.setname('PLayer1');

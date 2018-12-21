@@ -14,7 +14,7 @@ function runTimer(){
             } else {
                 s++;
             }
-            timer.innerHTML = ((m>10) ? m : "0" + m) + ":" + ((s>10) ? s : "0" + s);
+            timer.innerHTML = ((m>=10) ? m : "0" + m) + ":" + ((s>=10) ? s : "0" + s);
         }, 1000);
     } else {
         clearInterval(myInterval);
