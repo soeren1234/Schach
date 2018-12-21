@@ -17,9 +17,8 @@ body{
     position:relative;
 }
 
-#header {
-}
 #body {
+    min-height: 675px;
     padding-bottom: 100px;
 }
 
@@ -53,46 +52,21 @@ a {
 
 .child {
     display: inline-block;
+}
+
+.uschrift {
     font-size: 100px;
+}
+.text{
+    font-size: 60px;
 }
 
 #canva {
-    background: deepskyblue;
+    box-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 8px #fff, 0 0 10px #B6FF00, 0 0 18px #B6FF00, 0 0 20px #B6FF00, 0 0 25px #B6FF00, 0 0 38px #B6FF00;
     margin-top: 50px;
-}
-
-/*Canvas Start*/
-#canvas{
-    border:1px solid #000000;
-    display: block;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    margin-left: auto;
+    margin-right: auto;
     display: none;
-}
-/*Canvas Ende*/
-
-
-
-.hrblue {
-    width: 375px;
-    -moz-animation: blueBox 1.5s ease-in-out infinite alternate;
-}
-
-.hrred {
-    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
-}
-
-hr {
-    height: 10px;
-    margin: 0 auto;
-    background: #ffffff;
-    border: 0;
-    border-radius: 7px 7px 7px 7px;
-    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
 }
 
 ul{
@@ -102,4 +76,9 @@ ul{
 
 li{
     margin: 6px 0 14px 0;
+}
+
+#timer {
+    color: white;
+    height: 10px;
 }

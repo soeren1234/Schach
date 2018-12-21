@@ -27,7 +27,7 @@
 }
 
 /*für mozilla*/
-@-moz-keyframes red {
+ @-moz-keyframes red {
     from {
         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
     }
@@ -79,6 +79,22 @@
     to {
         text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #B6FF00, 0 0 35px #B6FF00, 0 0 40px #B6FF00, 0 0 50px #B6FF00, 0 0 75px #B6FF00;
     }
+}
 
+.hrblue {
+    width: 375px;
+    -moz-animation: blueBox 1.5s ease-in-out infinite alternate;
+}
 
+.hrred {
+    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
+}
+
+hr {
+    height: 10px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 0;
+    border-radius: 7px 7px 7px 7px;
+    -moz-animation: redBox 1.5s ease-in-out infinite alternate;
 }

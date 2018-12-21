@@ -75,7 +75,7 @@ function Puck (x,y) {
 
     Puck.prototype.tor = function() {
         if(this.x < width/2){
-            if(this.y >= 185 && this.x <= 10+15 && this.y <= 185+height*(1/4)) {
+            if(this.y >= (height/2)-height*(1/8) && this.x <= 10+15 && this.y <= (height/2)-height*(1/8)+height*(1/4)) {
                 ki.addpoint();
                 this.x = width/2;
                 this.y = height/2;
@@ -95,8 +95,8 @@ function Puck (x,y) {
 
     Puck.prototype.render = function () {
         context.beginPath();
-        context.fillStyle = color4;
-        context.shadowColor = color4;
+        context.fillStyle = color1;
+        context.shadowColor = color1;
         context.shadowBlur = shadowsize;
         context.arc(this.x, this.y, 15, 0, 2 * Math.PI, true);
         context.fill();

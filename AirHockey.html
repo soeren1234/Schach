@@ -2,7 +2,7 @@
 <head>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--<link href="neon.css" rel="stylesheet" type="text/css">-->
+    <link href="neon1.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Air Hokey</title>
 </head>
@@ -10,10 +10,10 @@
 <div id="container">
     <div id="header">
         <div class="parent">
-            <p class="yellow child">
+            <p class="yellow child uschrift">
                 Air&nbsp;
             </p>
-            <p class="green child">
+            <p class="green child uschrift">
                 Hockey
             </p>
         </div>
@@ -21,18 +21,35 @@
     </div>
 
     <div id="body">
+        <p id="timer"></p>
 
-        <p id="mouse"></p>
-        <canvas id="canva" height="500px" width="1000px" >
+        <div id="input">
+            <p>
+                <input type="text" id="name" value="dein Name">
+            </p>
+            <p class="blue">
+                <a  id="start" onclick="start()">Start</a>
+            </p>
+        </div>
+
+        <canvas id="canva" height="480px" width="640px" >
+            <script src="time.js"></script>
             <script src="puck.js"></script>
             <script src="airhokey.js"></script>
         </canvas>
 
+        <div id="end">
+            <div class="parent">
+                <p id="text1" class="green child text">
+                </p>
+                <p id="text2" class="yellow child text">
+                </p>
+            </div>
+        </div>
 
         <div style="min-height: 100px"></div>
         <p class="red">
-            <a href="index.html">Hompage
-            </a>
+            <a href="index.html">Hompage</a>
         </p>
         <p class="blue">
             <a href="highscore.html">Higscore</a>
