@@ -4,8 +4,9 @@ function Puck (x,y) {
     this.y = y;
     this.richtungx = 0;
     this.richtungy = 0;
-    this.speedx = 1/4;
-    this.speedy = 1/4;
+    this.speedx = 1/2;
+    this.speedy = 1/2;
+    var puckspeed = 10;
     this.seitea;
     this.seiteb;
     this.seitec;
@@ -27,18 +28,30 @@ function Puck (x,y) {
     };
 
     Puck.prototype.update = function() {
-        //this.calc(mouseX,mouseY);
-
         if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
+
+        } else {
         }
 
         if(this.y > height - a || this.y < a){
             this.richtungy= -this.richtungy;
 
+        } else {
         }
 
+        /*
+        if(this.richtungx>0){
+            if(this.richtungy>0){
+                this.richtungx = this.richtungx - (this.richtungx * (1/this.richtungx));
+                this.richtungy = this.richtungy - (this.richtungy * (1/this.richtungy));
+            }
+        }
+        */
+
+
         this.x += this.richtungx;
+
         this.y += this.richtungy;
     };
 
@@ -58,9 +71,7 @@ function Puck (x,y) {
                 this.richtungx = seitea*this.speedx;
                 this.richtungy = seiteb*this.speedy;
             } else {
-
             }
-
         }
 
         context.beginPath();
@@ -91,6 +102,23 @@ function Puck (x,y) {
                 this.richtungy = 0;
             }
         }
+
+
+    };
+
+    Puck.prototype.bremsen = function() {
+
+        //this.richtungx = this.richtungx + (this.richtungx * (1/2));
+        //this.richtungy = this.richtungy + (this.richtungy * (1/2));
+        /*
+        if (this.speedx < 0) {
+            this.speedx = 0;
+        } else if (this.speedy <= 0) {
+            this.speedy = 0;
+        } else {
+
+        }
+        */
     };
 
     Puck.prototype.render = function () {

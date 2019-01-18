@@ -24,12 +24,15 @@ var color4 = "black";
 var color5 = "#FFDD1B";
 var shadowsize = 15;
 
+//var time1;
+//var time2;
+
 canvas.addEventListener("mousemove", setMousePosition, false);
 
 var puck = new Puck(width/2,height/2);
 var player = new Player();
 var ki = new KI();
-var endpoints = 5;
+var endpoints = 1;
 /*
 var check;
 player.setname('PLayer1');
@@ -48,6 +51,8 @@ function start() {
     canvasPos = getPosition(canvas);
     startTimer();
     runTimer();
+    //time1 = Date().getTime();
+    //time2 = Date().getTime();
 }
 
 update();
@@ -89,8 +94,6 @@ function getPosition(el) {
         xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
         yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
         el = el.offsetParent;
-
-
     }
     return {
         x: xPosition,
@@ -100,8 +103,7 @@ function getPosition(el) {
 
 //gesamtes Canvas füllen
 function draw() {
-
-    if(player.getPoints()>=endpoints || ki.getPoints() >= endpoints){
+    if(player.getPoints()>= endpoints || ki.getPoints() >= endpoints){
         endgame();
     } else {
         //spielfeld
@@ -114,15 +116,21 @@ function draw() {
         puck.calc(player.getx(), player.gety(), ki.getx(), ki.gety());
         puck.update();
         puck.render();
+
+        //puck.bremsen();
         //Spieler eins zeichnen;
         player.setx(mouseX);
         player.sety(mouseY);
         player.draw();
 
-        ki.move();
+        if(puck.getx()>width/2){
+            ki.move();
+        } else {
+
+        }
 
         //Spieler 2 zeichnen
-        ki.setx(width*(3/4));
+        //ki.setx(width*(3/4));
         //ki.sety(height/2);
         ki.draw();
 
@@ -171,101 +179,6 @@ function Pusher (x,y) {
         context.strokeStyle = color1;
         context.stroke();
         context.closePath();
-    };
-}
-
-function Player() {
-    this.pusher = new Pusher(mouseX,mouseY);
-    this.points = 0;
-    this.name = "";
-
-    Player.prototype.setx = function (x) {
-        this.pusher.setx(x);
-    };
-
-    Player.prototype.sety = function (y) {
-        this.pusher.sety(y);
-    };
-
-    Player.prototype.getx = function () {
-        return this.pusher.getx();
-    };
-
-    Player.prototype.gety = function () {
-        return this.pusher.gety();
-    };
-
-    Player.prototype.setname = function(name){
-        this.name = name;
-    };
-
-    Player.prototype.getname = function() {
-        return this.name;
-    };
-
-    Player.prototype.getPoints = function() {
-        return this.points;
-    };
-
-    Player.prototype.addpoint = function() {
-        this.points++;
-    };
-
-    Player.prototype.draw = function () {
-        this.pusher.draw();
-    };
-}
-
-function KI() {
-    this.pusher = new Pusher(width*(3/4), height/2);
-    this.points = 0;
-    this.speedx = 0;
-    this.speedy = 1;
-
-    KI.prototype.setx = function (x) {
-        this.pusher.setx(x);
-    };
-
-    KI.prototype.sety = function (y) {
-        this.pusher.sety(y);
-    };
-
-    KI.prototype.getx = function(){
-        return this.pusher.getx();
-    };
-
-    KI.prototype.gety = function(){
-        return this.pusher.gety();
-    };
-
-    KI.prototype.getPoints = function() {
-        return this.points;
-    };
-
-    KI.prototype.addpoint = function(){
-        this.points++;
-    };
-
-    KI.prototype.move = function() {
-
-        if(puck.gety()<this.pusher.gety()){
-            this.pusher.sety(this.pusher.gety()-this.speedy);
-        } else {
-            this.pusher.sety(this.pusher.gety()+this.speedy);
-        }
-
-        if(width/2 +24< this.x) {
-            this.x = width/2 + 24;
-        }
-    };
-
-    KI.prototype.update = function() {
-
-
-    };
-
-    KI.prototype.draw = function(){
-        this.pusher.draw();
     };
 }
 
@@ -325,21 +238,34 @@ function drawfeld() {
 }
 
 function endgame() {
-    context.fillText(player.getPoints() + "   " + ki.getPoints(), width/2, 30);
+    /*
+     context.fillText(player.getPoints() + "   " + ki.getPoints(), width/2, 30);
     if(player.getPoints()>=endpoints){
         context.fillText(player.getname() ,width/2, height/2);
     } else if(ki.getPoints()>=endpoints){
         context.fillText("GAME OVER" ,width/2, height/2);
     }
+    */
+    var highscore = closeTimer()/(ki.getPoints()+player.getPoints());
     canvas.style.display = 'none';
+
+    function your_highscores_table() {
+
+    }
+
     if(player.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = player.getname() + "&nbsp";
         document.getElementById("text2").innerHTML = "Win";
+        document.getElementById("text3").innerHTML = "Highscore " + highscore;
+        var name = player.getname();
+        localStorage.setItem(name, highscore);
+
+
     } else if(ki.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = "Game&nbsp;";
         document.getElementById("text2").innerHTML = "Over";
+
     }
-    closeTimer();
     document.getElementById("text1").style.display = 'block';
     document.getElementById("text2").style.display = 'block';
 

@@ -34,7 +34,11 @@ function stopTimer(){
 
 function closeTimer(){
     timer.style.display = 'none';
+    stopTimer();
+    return m*60+s;
 }
+
+
 
 
 
