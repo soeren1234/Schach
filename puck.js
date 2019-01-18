@@ -30,13 +30,13 @@ function Puck (x,y) {
     Puck.prototype.update = function() {
         if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
-
+            document.getElementById("clicksound").play();
         } else {
         }
 
         if(this.y > height - a || this.y < a){
             this.richtungy= -this.richtungy;
-
+            document.getElementById("clicksound1").play();
         } else {
         }
 
