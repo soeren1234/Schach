@@ -3,14 +3,19 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="neon1.css" rel="stylesheet" type="text/css">
+
     <meta charset="UTF-8">
     <title>Air Hokey</title>
 </head>
 
 <body>
-<audio id="clicksound"  preload="auto" src="Puck.mp3" type="audio/mp3">
+<audio id="clicksound"  preload="auto" src="lasersound1.mp3" type="audio/mp3">
 </audio>
-<audio id="clicksound1"  preload="auto" src="Puck.mp3" type="audio/mp3">
+<audio id="clicksound1"  preload="auto" src="lasersound1.mp3" type="audio/mp3">r
+</audio>
+<audio id="pucksound"  preload="auto" src="lasersound2.mp3" type="audio/mp3">r
+</audio>
+<audio id="pucksound1"  preload="auto" src="lasersound2.mp3" type="audio/mp3">r
 </audio>
 <div id="container">
     <div id="header">
@@ -54,6 +59,25 @@
             </div>
             <p id="text3" class="yellow child text"></p>
         </div>
+
+        <div id="soundoptions">
+            <div class="parent">
+                <p class="child text" id="gamesounddown" onclick="gamesounddown()" title="Spiel leiser">🔉&nbsp;</p>
+                <p class="child text" id="gamesoundon" onclick="mutegame()" title="Spielton an/aus">🔈&nbsp;</p>
+                <p class="child text" id="gamesoundoff" onclick="mutegame()" title="Spielton an/aus">🔇&nbsp;</p>
+                <p class="child text" id="gamesoundup" onclick="gamesoundup()" title="Spiel lauter">🔊</p>
+            </div>
+        </div>
+
+
+        <p class="blue" >
+            <a id="sounddown" onclick="sounddown()" title="Musik leiser">♩&nbsp;</a>
+            <a id="sound" onclick="mute()" title="Musik an/aus">♫&nbsp;</a>
+            <a id="soundup" onclick="soundup()" title="Musik lauter">♪</a>
+        </p>
+        <audio id="audiofile" autoplay="true" loop preload="auto" src="AirHockey.mp3" type="audio/mp3">
+        </audio>
+        <script src="sound.js"></script>
 
         <div style="min-height: 100px"></div>
         <p class="red">

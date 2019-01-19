@@ -30,8 +30,12 @@
         <p class="blue">
             <a href="highscore.html">Higscore</a>
         </p>
-        <p class="red"><a onclick="mute()">♫</a></p>
-        <audio id="audiofile" autoplay="true" preload="auto" src="AirHockey.mp3" type="audio/mp3">
+        <p class="blue" >
+            <a id="sounddown" onclick="sounddown()" title="leiser">♩&nbsp;</a>
+            <a id="sound" onclick="mute()" title="Ton an/aus">♫&nbsp;</a>
+            <a id="soundup" onclick="soundup()" title="lauter">♪</a>
+        </p>
+        <audio id="audiofile" autoplay="true" loop preload="auto" src="AirHockey.mp3" type="audio/mp3">
         </audio>
         <script src="sound.js"></script>
     </div>

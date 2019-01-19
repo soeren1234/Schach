@@ -10,6 +10,9 @@ body{
     font-family: Pacifico;
     background-color: #222222;
     background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
+    -ms-user-select: None;
+    -moz-user-select: None;
+    -webkit-user-select: None;
 }
 
 #container {
@@ -82,4 +85,8 @@ li{
 #timer {
     color: white;
     height: 10px;
+}
+
+#sound,#sounddown,#soundup,#gamesound,#gamesounddown,#gamesoundup {
+    cursor: pointer;
 }

@@ -4,8 +4,8 @@ function Puck (x,y) {
     this.y = y;
     this.richtungx = 0;
     this.richtungy = 0;
-    this.speedx = 1/2;
-    this.speedy = 1/2;
+    this.speedx = 1/4;
+    this.speedy = 1/4;
     var puckspeed = 10;
     this.seitea;
     this.seiteb;
@@ -30,13 +30,19 @@ function Puck (x,y) {
     Puck.prototype.update = function() {
         if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
-            document.getElementById("clicksound").play();
+            //document.getElementById("clicksound").pause();
+            if(gamesound===1){
+                document.getElementById("clicksound").play();
+            }
         } else {
         }
 
         if(this.y > height - a || this.y < a){
             this.richtungy= -this.richtungy;
-            document.getElementById("clicksound1").play();
+            //document.getElementById("clicksound1").pause();
+            if(gamesound===1) {
+                document.getElementById("clicksound1").play();
+            }
         } else {
         }
 
@@ -63,6 +69,9 @@ function Puck (x,y) {
         if(0 >= seitec - 20-15) {
             this.richtungx = seitea*this.speedx;
             this.richtungy = seiteb*this.speedy;
+            if(gamesound===1) {
+                document.getElementById("pucksound").play();
+            }
         } else{
             seitea = this.x - x2;
             seiteb = this.y - y2;
@@ -70,6 +79,9 @@ function Puck (x,y) {
             if(0 >= seitec - 20-15) {
                 this.richtungx = seitea*this.speedx;
                 this.richtungy = seiteb*this.speedy;
+                if(gamesound===1){
+                    document.getElementById("pucksound1").play();
+                }
             } else {
             }
         }

@@ -32,7 +32,7 @@ canvas.addEventListener("mousemove", setMousePosition, false);
 var puck = new Puck(width/2,height/2);
 var player = new Player();
 var ki = new KI();
-var endpoints = 1;
+var endpoints = 10;
 /*
 var check;
 player.setname('PLayer1');
@@ -259,8 +259,6 @@ function endgame() {
         document.getElementById("text3").innerHTML = "Highscore " + highscore;
         var name = player.getname();
         localStorage.setItem(name, highscore);
-
-
     } else if(ki.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = "Game&nbsp;";
         document.getElementById("text2").innerHTML = "Over";
