@@ -49,9 +49,17 @@ function mutegame() {
 
 function gamesounddown() {
     gamevolume = (gamevolume + down>0.2)?gamevolume + down : gamevolume;
+    document.getElementById("clicksound").volume = gamevolume;
+    document.getElementById("clicksound1").volume = gamevolume;
+    document.getElementById("pucksound").volume = gamevolume;
+    document.getElementById("pucksound1").volume = gamevolume;
 }
 
 function gamesoundup() {
     gamevolume = (gamevolume + up<=1)?gamevolume + up : gamevolume;
+    document.getElementById("clicksound").volume = gamevolume;
+    document.getElementById("clicksound1").volume = gamevolume;
+    document.getElementById("pucksound").volume = gamevolume;
+    document.getElementById("pucksound1").volume = gamevolume;
 }
 
