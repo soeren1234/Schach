@@ -90,3 +90,7 @@ li{
 #sound,#sounddown,#soundup,#gamesound,#gamesounddown,#gamesoundup {
     cursor: pointer;
 }
+
+#soundoptions {
+    display: none;
+}

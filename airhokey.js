@@ -44,6 +44,7 @@ do{
 
 function start() {
     canvas.style.display = 'block';
+    document.getElementById("soundoptions").style.display = 'block';
 
     player.setname(document.getElementById("name").value);
 
@@ -248,6 +249,7 @@ function endgame() {
     */
     var highscore = closeTimer()/(ki.getPoints()+player.getPoints());
     canvas.style.display = 'none';
+    document.getElementById("soundoptions").style.display = 'none';
 
     function your_highscores_table() {
 
