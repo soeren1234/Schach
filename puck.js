@@ -6,7 +6,6 @@ function Puck (x,y) {
     this.richtungy = 0;
     this.speedx = 1/4;
     this.speedy = 1/4;
-    var puckspeed = 10;
     this.seitea;
     this.seiteb;
     this.seitec;
@@ -30,7 +29,6 @@ function Puck (x,y) {
     Puck.prototype.update = function() {
         if(this.x > width - a || this.x < a) {
             this.richtungx = -this.richtungx;
-            //document.getElementById("clicksound").pause();
             if(gamesound===1){
                 document.getElementById("clicksound").play();
             }
@@ -39,12 +37,12 @@ function Puck (x,y) {
 
         if(this.y > height - a || this.y < a){
             this.richtungy= -this.richtungy;
-            //document.getElementById("clicksound1").pause();
             if(gamesound===1) {
                 document.getElementById("clicksound1").play();
             }
         } else {
         }
+
 
         /*
         if(this.richtungx>0){
@@ -87,7 +85,7 @@ function Puck (x,y) {
         }
 
         context.beginPath();
-        context.fillText(this.richtungx + " " + this.richtungy, 50, 30);
+        //context.fillText(this.richtungx + " " + this.richtungy, 50, 30);
         context.closePath();
     };
 

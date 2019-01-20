@@ -1,8 +1,8 @@
 function KI() {
     this.pusher = new Pusher(width*(3/4), height/2);
     this.points = 0;
-    this.speedx = 0;
-    this.speedy = 1;
+    this.speedx = 2;
+    this.speedy = 3;
     this.seitea;
     this.seiteb;
     this.seitec;
@@ -41,20 +41,43 @@ function KI() {
         seitea = this.x - width*(3/4);
         seiteb = this.y - height/2;
         seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
+        */
 
-
-
-
+        if(puck.getx()<this.pusher.getx()){
             if(puck.gety()<this.pusher.gety()){
                 this.pusher.sety(this.pusher.gety()-this.speedy);
             } else {
                 this.pusher.sety(this.pusher.gety()+this.speedy);
             }
+        } else{
 
-            if(width/2 +24< this.x) {
+        }
+
+        if(puck.getx() === this.pusher.getx()) {
+            this.pusher.setx(this.pusher.getx()-this.speedx);
+        }
+        else{
+
+        }
+
+            /*
+                if(puck.getx()<this.pusher.getx()){
+                    this.pusher.setx(this.pusher.getx()-this.speedx);
+                } else {
+                    this.pusher.setx(this.pusher.getx()+this.speedx);
+                }
+                */
+
+
+
+            /*
+            if(width/2 + 24< this.x) {
                 this.x = width/2 + 24;
             }
+            */
 
+
+            /*
             seitea = this.x - width*(3/4);
             seiteb = this.y - height/2;
             seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
