@@ -1,4 +1,4 @@
-//Puck
+//Objekt Puck erstellen
 function Puck (x,y) {
     this.x = x;
     this.y = y;
@@ -42,23 +42,10 @@ function Puck (x,y) {
             }
         } else {
         }
-
-
-        /*
-        if(this.richtungx>0){
-            if(this.richtungy>0){
-                this.richtungx = this.richtungx - (this.richtungx * (1/this.richtungx));
-                this.richtungy = this.richtungy - (this.richtungy * (1/this.richtungy));
-            }
-        }
-        */
-
-
         this.x += this.richtungx;
-
         this.y += this.richtungy;
     };
-
+    //Berechenung wenn der Puck auf einen Schlaeger kommt
     Puck.prototype.calc = function(x1,y1,x2,y2) {
         seitea = this.x - x1;
         seiteb = this.y - y1;
@@ -85,15 +72,16 @@ function Puck (x,y) {
         }
 
         context.beginPath();
-        //context.fillText(this.richtungx + " " + this.richtungy, 50, 30);
         context.closePath();
     };
 
+    //Geschhwindigkeit
     Puck.prototype.speed = function(x,y) {
         this.richtungx = x;
         this.richtungy = y;
     };
 
+    //Wenn Puck ins Tor kommt dann wird er auf die Ausgabgsposition zurueckgesetzt
     Puck.prototype.tor = function() {
         if(this.x < width/2){
             if(this.y >= (height/2)-height*(1/8) && this.x <= 10+15 && this.y <= (height/2)-height*(1/8)+height*(1/4)) {
@@ -118,19 +106,9 @@ function Puck (x,y) {
 
     Puck.prototype.bremsen = function() {
 
-        //this.richtungx = this.richtungx + (this.richtungx * (1/2));
-        //this.richtungy = this.richtungy + (this.richtungy * (1/2));
-        /*
-        if (this.speedx < 0) {
-            this.speedx = 0;
-        } else if (this.speedy <= 0) {
-            this.speedy = 0;
-        } else {
-
-        }
-        */
     };
 
+    //zeichent den puck
     Puck.prototype.render = function () {
         context.beginPath();
         context.fillStyle = color1;

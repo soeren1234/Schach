@@ -1,3 +1,5 @@
+"use strict";
+//Objekt KI erstellen
 function KI() {
     this.pusher = new Pusher(width*(3/4), height/2);
     this.points = 0;
@@ -37,12 +39,6 @@ function KI() {
         this.x += this.richtungx;
         this.y += this.richtungy;
 
-        /*
-        seitea = this.x - width*(3/4);
-        seiteb = this.y - height/2;
-        seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
-        */
-
         if(puck.getx()<this.pusher.getx()){
             if(puck.gety()<this.pusher.gety()){
                 this.pusher.sety(this.pusher.gety()-this.speedy);
@@ -59,30 +55,6 @@ function KI() {
         else{
 
         }
-
-            /*
-                if(puck.getx()<this.pusher.getx()){
-                    this.pusher.setx(this.pusher.getx()-this.speedx);
-                } else {
-                    this.pusher.setx(this.pusher.getx()+this.speedx);
-                }
-                */
-
-
-
-            /*
-            if(width/2 + 24< this.x) {
-                this.x = width/2 + 24;
-            }
-            */
-
-
-            /*
-            seitea = this.x - width*(3/4);
-            seiteb = this.y - height/2;
-            seitec = Math.sqrt(seitea * seitea + seiteb* seiteb);
-            */
-
     };
 
     KI.prototype.update = function() {

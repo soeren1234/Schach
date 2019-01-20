@@ -106,3 +106,7 @@ li{
 #soundoptions, #neustart {
     display: none;
 }
+
+#pause{
+    display: none;
+}

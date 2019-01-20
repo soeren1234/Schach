@@ -1,4 +1,5 @@
 "use strict";
+//kuemmert sich um die Zeitberechnung
 var timer = document.getElementById("timer");
 var time = 0;
 var m = 0;
@@ -21,12 +22,11 @@ function runTimer(){
         myInterval = -1;
     }
 }
-
-
+//startet zeit
 function startTimer(){
     myInterval = -1;
 }
-
+//wird verwendet um bei closeTimer aufgerufen um die Zeit zu stoppen
 function stopTimer(){
     clearInterval(myInterval);
     myInterval = 0;
@@ -37,14 +37,7 @@ function closeTimer(){
     stopTimer();
     return m*60+s;
 }
-
+//Zeit in Sekunden zurueck geben
 function gettime(){
     return m*60+s;
 }
-
-
-
-
-
-
-

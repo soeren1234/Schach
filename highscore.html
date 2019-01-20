@@ -10,6 +10,7 @@
 </head>
 <body>
 <div id="container">
+    <!-- Ueberchrift -->
     <div id="header">
         <div class="parent">
             <p class="yellow child uschrift">
@@ -22,6 +23,7 @@
         <hr class="hrblue">
     </div>
 
+    <!-- Seiteninhalt -->
     <div id="body">
         <p class="yellow text">
             Highscore Liste
@@ -29,6 +31,14 @@
         <p id="highscore1" class="text2" >
         </p>
         <script src="highscore.js"></script>
+        <p class="red" >
+            <a id="sounddown" onclick="sounddown()" title="Musik leiser">♩&nbsp;</a>
+            <a id="sound" onclick="mute()" title="Musik an/aus">♫&nbsp;</a>
+            <a id="soundup" onclick="soundup()" title="Musik lauter">♪</a>
+        </p>
+        <audio id="audiofile" autoplay="true" loop preload="auto" src="AirHockey.mp3" type="audio/mp3">
+        </audio>
+        <script src="sound.js"></script>
         <div style="min-height: 100px"></div>
         <p class="blue">
             <a href="AirHockey.html">Spielen
@@ -41,6 +51,7 @@
         <div style="min-height: 100px"></div>
     </div>
 
+    <!-- Impressum -->
     <div id="footer">
         <hr class="hrred">
         <div style="display: table; margin: 0 auto;">

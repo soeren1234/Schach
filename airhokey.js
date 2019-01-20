@@ -1,12 +1,15 @@
 "use strict";
+
 var canvas = document.querySelector("#canva");
 var context = canvas.getContext("2d");
 
 var canvasPos = getPosition(canvas);
 
+//Spielfeld
 var width = canvas.width;
 var height = canvas.height;
 
+//Startposition des Spielers
 var mouseX = width*(1/4);
 var mouseY = height*(1/2);
 
@@ -24,21 +27,26 @@ var color4 = "black";
 var color5 = "#FFDD1B";
 var shadowsize = 15;
 
-//var time1;
-//var time2;
 
 canvas.addEventListener("mousemove", setMousePosition, false);
 
+
+//Puck, Player und KI werden erstellt
 var puck = new Puck(width/2,height/2);
 var player = new Player();
 var ki = new KI();
+//Bestimmt wie lange das Spiel geht
 var endpoints = 10;
+//Counter zum einfuegen für Highscore
 var count = 1;
 
 
+
+//Funktion fuer den Startbutton, damit das Spiel startet
 function start() {
     canvas.style.display = 'block';
     document.getElementById("soundoptions").style.display = 'block';
+    document.getElementById("pause").style.display = 'block';
 
     player.setname(document.getElementById("name").value);
 
@@ -48,8 +56,19 @@ function start() {
     runTimer();
 }
 
+//Play/Pause vom Spiel - momentan nicht funktionsfähig
+var pause=1;
+function pauseplay(){
+    if(pause===1){
+        pause=0;
+    } else {
+        pause=1;
+    }
+}
+
 update();
 
+//Berechnung der Mauskoordinaten
 function setMousePosition(e) {
     //mit berechnung das player1 in feld1 bleibt
     mouseX = (e.clientX - canvasPos.x<=c)?e.clientX - canvasPos.x:c;
@@ -60,25 +79,32 @@ function setMousePosition(e) {
     } else {
 
     }
-
     context.clearRect(0, 0, width, height);
     draw();
 }
 
-function update() {
+//Zeichnet das canvas
+ function update() {
     context.clearRect(0, 0, width, height);
     draw();
+
+
     requestAnimationFrame(update);
+
+
 }
+
+
 
 window.addEventListener("scroll", updatePosition, false);
 window.addEventListener("resize", updatePosition, false);
 
+//Behebt Komplikationen beim scrollen der Seite
 function updatePosition() {
     canvasPos = getPosition(canvas);
 }
 
-// Helper function to get an element's exact position
+//zeigt die exakte Position des Elements
 function getPosition(el) {
     var xPosition = 0;
     var yPosition = 0;
@@ -111,20 +137,18 @@ function draw() {
         puck.render();
 
         //puck.bremsen();
-        //Spieler eins zeichnen;
+        //Spieler zeichnen;
         player.setx(mouseX);
         player.sety(mouseY);
         player.draw();
 
+        //Sorgt dafuer das die KI sich nur bewegt wenn der Puck ueber ein drittel des Feldes ist
         if(puck.getx()>width*(1/3)){
             ki.move();
         } else {
 
         }
 
-        //Spieler 2 zeichnen
-        //ki.setx(width*(3/4));
-        //ki.sety(height/2);
         ki.draw();
 
         //Punkte
@@ -136,7 +160,7 @@ function draw() {
     }
 }
 
-//Schläger zeichnen
+//Objekt Schläger erstellen
 function Pusher (x,y) {
     this.x = x;
     this.y = y;
@@ -157,6 +181,7 @@ function Pusher (x,y) {
         return this.y;
     };
 
+    //Schläger zeichnen
     Pusher.prototype.draw = function () {
         context.beginPath();
         context.shadowColor = color2;
@@ -211,11 +236,14 @@ function drawfeld() {
     context.closePath();
 }
 
+//
 function endgame() {
-    var highscore = closeTimer()/(ki.getPoints()+player.getPoints());
+    //sorgt dafuer das die Zeit nicht weiter laeuft nachdem das Spiel beendet wurde
+    closeTimer();
     canvas.style.display = 'none';
     document.getElementById("soundoptions").style.display = 'none';
 
+    //bestimmt was passiert wenn Spieler oder KI gewinnt
     if(player.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = player.getname() + "&nbsp";
         document.getElementById("text2").innerHTML = "Win" + "<br>";
@@ -234,8 +262,8 @@ function endgame() {
     } else if(ki.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = "Game&nbsp;";
         document.getElementById("text2").innerHTML = "Over";
-
     }
+
     document.getElementById("text1").style.display = 'block';
     document.getElementById("text2").style.display = 'block';
     document.getElementById("neustart").style.display = 'block';

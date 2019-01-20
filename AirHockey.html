@@ -3,12 +3,12 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="neon1.css" rel="stylesheet" type="text/css">
-
     <meta charset="UTF-8">
     <title>Air Hokey</title>
 </head>
 
 <body>
+<!-- Gamesound einbauen -->
 <div>
     <audio id="clicksound"  preload="auto" src="lasersound1.mp3" type="audio/mp3">
     </audio>
@@ -19,8 +19,8 @@
     <audio id="pucksound1"  preload="auto" src="lasersound2.mp3" type="audio/mp3">
     </audio>
 </div>
-
 <div id="container">
+    <!-- Ueberschrift -->
     <div id="header">
         <div class="parent">
             <p class="yellow child uschrift">
@@ -33,6 +33,7 @@
         <hr class="hrblue">
     </div>
 
+    <!--Seiteninhalt -->
     <div id="body">
 
         <p id="timer"></p>
@@ -68,8 +69,14 @@
             <p id="neustart" class="red"><a onclick="location.reload()" title="Neu start">Spiel neu starten</a></p>
         </div>
 
+        <div id="pause">
+            <div class="parent">
+                <p class="child text3" onclick="pauseplay()">Pause/Play</p>
+            </div>
+        </div>
         <div id="soundoptions">
             <div class="parent">
+
                 <p class="child text" id="gamesounddown" onclick="gamesounddown()" title="Spiel leiser">🔉&nbsp;</p>
                 <p class="child text" id="gamesoundon" onclick="mutegame()" title="Spielton an/aus">🔈&nbsp;</p>
                 <p class="child text" id="gamesoundoff" onclick="mutegame()" title="Spielton an/aus">🔇&nbsp;</p>
@@ -101,6 +108,7 @@
         <div style="min-height: 100px"></div>
     </div>
 
+    <!-- Impressum -->
     <div id="footer">
         <hr class="hrred">
         <div style="display: table; margin: 0 auto;">

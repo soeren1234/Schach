@@ -1,3 +1,4 @@
+"use strict";
 var soundvolume = 1;
 var up = 0.2;
 var down = -0.2;
@@ -17,13 +18,13 @@ function mute(){
         document.getElementById("sound").style.textDecoration = 'none';
     }
 }
-
+//lautstaerke verringern
 function sounddown(){
     soundvolume = (soundvolume + down>0.2)?soundvolume + down : soundvolume;
     document.getElementById("audiofile").volume = soundvolume;
 
 }
-
+//lautstaerke erhoehen
 function soundup() {
     soundvolume = (soundvolume + up<=1)?soundvolume + up : soundvolume;
     document.getElementById("audiofile").volume = soundvolume;
@@ -46,7 +47,7 @@ function mutegame() {
         gamesound=1;
     }
 }
-
+//soundeffekte verringern
 function gamesounddown() {
     gamevolume = (gamevolume + down>0.2)?gamevolume + down : gamevolume;
     document.getElementById("clicksound").volume = gamevolume;
@@ -54,7 +55,7 @@ function gamesounddown() {
     document.getElementById("pucksound").volume = gamevolume;
     document.getElementById("pucksound1").volume = gamevolume;
 }
-
+//soundeffekte erhoehen
 function gamesoundup() {
     gamevolume = (gamevolume + up<=1)?gamevolume + up : gamevolume;
     document.getElementById("clicksound").volume = gamevolume;
@@ -62,4 +63,3 @@ function gamesoundup() {
     document.getElementById("pucksound").volume = gamevolume;
     document.getElementById("pucksound1").volume = gamevolume;
 }
-

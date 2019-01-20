@@ -1,3 +1,5 @@
+"use strict";
+//Objekt Spieler erstellen
 function Player() {
     this.pusher = new Pusher(mouseX,mouseY);
     this.points = 0;
