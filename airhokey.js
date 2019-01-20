@@ -259,8 +259,14 @@ function endgame() {
         document.getElementById("text3").innerHTML = "Highscore " + highscore;
         var name = player.getname();
         var save = gettime() + "," + ki.getPoints();
-        for(var i = 0; i<localStorage.length; i++){
+        for(var i = 0; i<hs.length; i++){
+            hs[i][0] = player.getname();
+            if(hs[i][1] >= time()){
+                if(hs[i][2] >=ki.getPoints()){
+                    for(var j = i; j<hs.length; j++){
 
+                    }
+                }
 
             }
         }
