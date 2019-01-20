@@ -255,22 +255,30 @@ function endgame() {
 
     if(player.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = player.getname() + "&nbsp";
-        document.getElementById("text2").innerHTML = "Win";
-        document.getElementById("text3").innerHTML = "Highscore " + highscore;
-        var name = player.getname();
-        var save = gettime() + "," + ki.getPoints();
-        for(var i = 0; i<hs.length; i++){
-            hs[i][0] = player.getname();
-            if(hs[i][1] >= time()){
-                if(hs[i][2] >=ki.getPoints()){
-                    for(var j = i; j<hs.length; j++){
+        document.getElementById("text2").innerHTML = "Win" + "<br>";
+        document.getElementById("text3").innerHTML = "Zeit: " + ((gettime()/60>=1)?Math.abs(gettime()/60):"00") +":" + (gettime()%60)+ " KI-Punkte: " + ki.getPoints();
 
+        var save = player.getname() + ","+gettime() + "," + ki.getPoints();
+        var array = [];
+        if(hs != null){
+            for(var i = 0; i<hs.length; i++){
+                hs[i][0] = player.getname();
+                if(hs[i][1] >= time()){
+                    if(hs[i][2] >=ki.getPoints()){
+                        localStorage.setItem(i.toString(), save);
+                        for(var j = i+1; j<hs.length; j++){
+                            save = hs[i][1] + "," + hs[i][2] + "," + hs[i][3];
+                            localStorage.setItem(j.toString(), save);
+                        }
                     }
-                }
 
+                }
             }
+        } else {
+            localStorage.setItem("1" , save);
         }
-        localStorage.setItem(name, save);
+
+        //localStorage.setItem(name, save);
     } else if(ki.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = "Game&nbsp;";
         document.getElementById("text2").innerHTML = "Over";

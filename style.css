@@ -67,6 +67,14 @@ a {
 
 .text2{
     font-size: 40px;
+    color: white;
+    align:center;
+}
+
+.text3{
+    font-size: 20px;
+    max-width: 800px;
+    color: white;
 }
 
 #canva {

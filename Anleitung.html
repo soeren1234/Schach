@@ -5,35 +5,37 @@
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="neon.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
-    <title>Air Hockey</title>
+    <title>Anleitung</title>
 </head>
 <body>
 <div id="container">
     <div id="header">
         <div class="parent">
-        <p class="yellow child uschrift">
-            Air&nbsp;
-        </p>
-        <p class="green child uschrift">
-            Hockey
-        </p>
+            <p class="yellow child uschrift">
+                Air&nbsp;
+            </p>
+            <p class="green child uschrift">
+                Hockey
+            </p>
         </div>
         <hr class="hrblue">
     </div>
 
     <div id="body">
-        <div style="min-height: 100px"></div>
-        <p class="red">
-            <a href="AirHockey.html">Spielen
-            </a>
+        <p class="yellow">
+            <a>Anleitung zum Spiel</a>
         </p>
-        <p class="blue">
-            <a href="highscore.html">Highscore</a>
-        </p>
-        <p class="red">
-            <a href="Anleitung.html">Spielanleitung</a>
-        </p>
-
+        <div class="parent">
+            <div class="text3 child">
+                <p>
+                    Das Ziel des Spiels ist es den PUCK ins gegnerrische Tor zu bekommen.
+                    Dabei dient die Maus zum bewegen des eigenen  Schlägers. Man kann nur seine
+                    hälfte des Spielfeldes mit seinem Schhläger benutzten. Wer als erstes 10 Tore schafft gewinnt.<br><br>
+                    <u>Soundoptionen</u><br>
+                    Der Ton von der Hintergrundmusik und die Spielgeräusche können an, aus, leiser und lauter gestellt werden.
+                </p>
+            </div>
+        </div>
         <p class="blue" >
             <a id="sounddown" onclick="sounddown()" title="leiser">♩&nbsp;</a>
             <a id="sound" onclick="mute()" title="Ton an/aus">♫&nbsp;</a>
@@ -42,6 +44,20 @@
         <audio id="audiofile" autoplay="true" loop preload="auto" src="AirHockey.mp3" type="audio/mp3">
         </audio>
         <script src="sound.js"></script>
+
+
+        <div style="min-height: 50px"></div>
+        <p class="blue">
+            <a href="index.html">Homepage</a>
+        </p>
+        <p class="red">
+            <a href="AirHockey.html">Spielen
+            </a>
+        </p>
+        <p class="blue">
+            <a href="highscore.html">Highscore</a>
+        </p>
+        <div style="min-height: 100px"></div>
     </div>
 
     <div id="footer">
