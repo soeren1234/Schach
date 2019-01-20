@@ -38,6 +38,10 @@ function closeTimer(){
     return m*60+s;
 }
 
+function gettime(){
+    return m*60+s;
+}
+
 
 
 

@@ -32,7 +32,8 @@ canvas.addEventListener("mousemove", setMousePosition, false);
 var puck = new Puck(width/2,height/2);
 var player = new Player();
 var ki = new KI();
-var endpoints = 10;
+var hs = new Highscore();
+var endpoints = 1;
 /*
 var check;
 player.setname('PLayer1');
@@ -251,16 +252,19 @@ function endgame() {
     canvas.style.display = 'none';
     document.getElementById("soundoptions").style.display = 'none';
 
-    function your_highscores_table() {
-
-    }
 
     if(player.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = player.getname() + "&nbsp";
         document.getElementById("text2").innerHTML = "Win";
         document.getElementById("text3").innerHTML = "Highscore " + highscore;
         var name = player.getname();
-        localStorage.setItem(name, highscore);
+        var save = gettime() + "," + ki.getPoints();
+        for(var i = 0; i<localStorage.length; i++){
+
+
+            }
+        }
+        localStorage.setItem(name, save);
     } else if(ki.getPoints()>=endpoints){
         document.getElementById("text1").innerHTML = "Game&nbsp;";
         document.getElementById("text2").innerHTML = "Over";
@@ -268,5 +272,5 @@ function endgame() {
     }
     document.getElementById("text1").style.display = 'block';
     document.getElementById("text2").style.display = 'block';
-
+    document.getElementById("neustart").style.display = 'block';
 }
